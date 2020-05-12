@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import NavMenu from '../NavMenu/NavMenu';
+
 export default function LoginForm() {
   const [credentials, setCredentials] = useState({})
 
@@ -12,6 +14,7 @@ export default function LoginForm() {
 
   return (
     <div>
+      <NavMenu />
       <h2>Login Form</h2>
 
       <div>
