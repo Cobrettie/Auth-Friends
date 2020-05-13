@@ -52,12 +52,14 @@ app.use(bodyParser.json());
 app.use(cors());
 
 function authenticator(req, res, next) {
-  const { authorization } = req.headers;
-  if (authorization === token) {
-    next();
-  } else {
-    res.status(403).json({ error: 'User must be logged in to do that.' });
-  }
+  // const { authorization } = req.headers;
+  // console.log('authenticator req', req)
+  // if (authorization === token) {
+  //   next();
+  // } else {
+  //   res.status(403).json({ error: 'User must be logged in to do that.' });
+  // }
+  next()
 }
 
 app.post('/api/login', (req, res) => {
