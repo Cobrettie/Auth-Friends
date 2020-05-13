@@ -1,9 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-
 import NavMenu from './components/NavMenu/NavMenu';
-import LoginForm from './components/LoginForm/LoginForm';
-
 import './App.css';
 
 function App() {
