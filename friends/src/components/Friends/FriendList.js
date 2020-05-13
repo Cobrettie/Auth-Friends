@@ -34,7 +34,6 @@ class FriendList extends React.Component {
           <p>Loading friends...</p> :
           this.state.friendList.map(friend => {
           return (
-            console.log('friend'),
             <div key={friend.id}>
               <p>{friend.name}</p>
               <p>{friend.email}</p>

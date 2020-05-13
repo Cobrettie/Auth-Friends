@@ -27,10 +27,13 @@ class AddFriend extends React.Component {
               name='age'
               placeholder='age'
             />
+            <button type='submit'>Add Friend</button>
           </form>
         </div>
-
+        
       </div>
     )
   }
 }
+
+export default AddFriend
