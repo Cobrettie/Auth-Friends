@@ -9,7 +9,7 @@ import './index.css';
 
 import * as serviceWorker from './serviceWorker';
 
-const PrivateRoute = ({ component: FriendList, ...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route 
       {...rest} 
@@ -26,7 +26,6 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <PrivateRoute path='/friendlist' component={FriendList} />
-      {/* <Route exact path='/friendlist' component={FriendList} /> */}
       <Route path='/login' component={LoginForm} />
       <Route exact path='/' component={App} />
     </Switch>
