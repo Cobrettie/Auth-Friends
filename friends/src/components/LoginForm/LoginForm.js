@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import NavMenu from '../NavMenu/NavMenu';
 
@@ -22,6 +23,10 @@ class LoginForm extends React.Component {
   login = event => {
     event.preventDefault()
     console.log(this.state)
+
+    // make a POST request, send credentials object to the api, log out response
+    axios.post('http://localhost:5000/api/login', this.state.credentials)
+      .then(response => console.log('LoginForm post request response', response))
   }
 
   render() {
