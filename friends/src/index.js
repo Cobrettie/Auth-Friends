@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import App from './App';
 import LoginForm from './components/LoginForm/LoginForm';
@@ -9,10 +9,24 @@ import './index.css';
 
 import * as serviceWorker from './serviceWorker';
 
+const PrivateRoute = ({ component: FriendList, ...rest }) => {
+  return (
+    <Route 
+      {...rest} 
+      render={props => 
+        localStorage.getItem('token') ? 
+        ( <FriendList {...props} /> ) :
+        ( <Redirect to='/login' /> )
+    } 
+    />
+  )
+}
+
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact path='/friendlist' component={FriendList} />
+      <PrivateRoute path='/friendlist' component={FriendList} />
+      {/* <Route exact path='/friendlist' component={FriendList} /> */}
       <Route path='/login' component={LoginForm} />
       <Route exact path='/' component={App} />
     </Switch>
