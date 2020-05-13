@@ -6,9 +6,10 @@ import NavMenu from '../NavMenu/NavMenu';
 class LoginForm extends React.Component {
   state = {
     credentials: {
-      username: '',
-      password: ''
-    }
+      username: 'cobra',
+      password: 'cobra'
+    },
+    isLoading: false
   }
 
   handleChange = event => {
@@ -22,11 +23,19 @@ class LoginForm extends React.Component {
 
   login = event => {
     event.preventDefault()
+    this.setState({ isLoading: true })
     console.log(this.state)
 
     // make a POST request, send credentials object to the api, log out response
     axios.post('http://localhost:5000/api/login', this.state.credentials)
-      .then(response => console.log('LoginForm post request response', response))
+      .then(response => {
+        console.log('LoginForm post request response', response)
+        localStorage.setItem('token', response.data.payload)
+        setTimeout(() => {
+          this.setState({ isLoading: false })
+        }, 500)
+      })
+      .catch(err => console.log(err))
   }
 
   render() {
@@ -34,26 +43,29 @@ class LoginForm extends React.Component {
       <div>
         <NavMenu />
         <h2>Login Form</h2>
-
-        <div>
-          <form onSubmit={this.login}>
-            <input 
-              type='text'
-              name='username'
-              onChange={this.handleChange}
-              value={this.state.credentials.username}
-              placeholder='Username'
-            />
-            <input 
-              type='password'
-              name='password'
-              onChange={this.handleChange}
-              value={this.state.credentials.password}
-              placeholder='Password'
-            />
-            <button type='submit'>Submit</button>
-          </form>
-        </div>
+        {
+          this.state.isLoading ? 
+          <p>Spinner...</p> : 
+          <div>
+            <form onSubmit={this.login}>
+              <input 
+                type='text'
+                name='username'
+                onChange={this.handleChange}
+                value={this.state.credentials.username}
+                placeholder='Username'
+              />
+              <input 
+                type='password'
+                name='password'
+                onChange={this.handleChange}
+                value={this.state.credentials.password}
+                placeholder='Password'
+              />
+              <button type='submit'>Submit</button>
+            </form>
+          </div>
+        }
       </div>
     )
   }
