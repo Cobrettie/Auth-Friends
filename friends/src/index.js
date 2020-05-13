@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact path='/protected' component={FriendList} />
+      <Route exact path='/friendlist' component={FriendList} />
       <Route path='/login' component={LoginForm} />
       <Route exact path='/' component={App} />
     </Switch>

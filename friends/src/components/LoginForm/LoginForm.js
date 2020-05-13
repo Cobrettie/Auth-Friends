@@ -4,12 +4,15 @@ import axios from 'axios';
 import NavMenu from '../NavMenu/NavMenu';
 
 class LoginForm extends React.Component {
-  state = {
-    credentials: {
-      username: 'cobra',
-      password: 'cobra'
-    },
-    isLoading: false
+  constructor(props) {
+    super(props)
+    this.state = {
+      credentials: {
+        username: 'cobra',
+        password: 'cobra'
+      },
+      isLoading: false
+    }
   }
 
   handleChange = event => {
@@ -33,12 +36,14 @@ class LoginForm extends React.Component {
         localStorage.setItem('token', response.data.payload)
         setTimeout(() => {
           this.setState({ isLoading: false })
+          this.props.history.push('/friendlist')
         }, 500)
       })
       .catch(err => console.log(err))
   }
 
   render() {
+    console.log('LoginForm Component props', this.props)
     return (
       <div>
         <NavMenu />

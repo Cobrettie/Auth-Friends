@@ -7,6 +7,7 @@ export default function NavMenu() {
       <nav>
         <Link to='/'>Home</Link>
         <Link to='/login'>Login</Link>
+        <Link to='/friendlist'>Friend List</Link>
       </nav>
     </div>
   )
