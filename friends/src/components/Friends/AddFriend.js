@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import NavMenu from '../NavMenu/NavMenu';
 
+import { FormHeader, FormContainerDiv } from './FriendStyles';
+
 class AddFriend extends React.Component {
   state = {
     friend: {
@@ -27,6 +29,13 @@ class AddFriend extends React.Component {
     axios.post('http://localhost:5000/api/friends', this.state.friend)
       .then(response => {
         console.log('AddFriend POST req response', response)
+        this.setState({
+          friend: {
+            name: '',
+            age: 0,
+            email: ''
+          }
+        })
       })
       .catch(err => console.log(err))
   }
@@ -35,9 +44,9 @@ class AddFriend extends React.Component {
     return (
       <div>
         <NavMenu />
-        <h2>Add Friend Component</h2>
+        <FormHeader>Add Friend</FormHeader>
 
-        <div>
+        <FormContainerDiv>
           <form onSubmit={this.handleSubmit}>
             <input
               type='text'
@@ -62,7 +71,7 @@ class AddFriend extends React.Component {
             />
             <button type='submit'>Add Friend</button>
           </form>
-        </div>
+        </FormContainerDiv>
 
       </div>
     )
