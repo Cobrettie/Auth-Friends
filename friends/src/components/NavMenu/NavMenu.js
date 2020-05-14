@@ -1,15 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import { StyledNav, StyledLink } from './NavMenuStyles';
 
 export default function NavMenu() {
   return (
     <div>
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/login'>Login</Link>
-        <Link to='/friendlist'>Friend List</Link>
-        <Link to ='/addfriend'>Add Friend</Link>
-      </nav>
+      <StyledNav>
+        <StyledLink to='/'>Home</StyledLink>
+        <StyledLink to='/login'>Login</StyledLink>
+        <StyledLink to='/friendlist'>Friend List</StyledLink>
+        <StyledLink to ='/addfriend'>Add Friend</StyledLink>
+      </StyledNav>
     </div>
   )
 }
