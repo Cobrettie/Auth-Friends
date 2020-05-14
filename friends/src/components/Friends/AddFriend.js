@@ -6,10 +6,9 @@ import NavMenu from '../NavMenu/NavMenu';
 class AddFriend extends React.Component {
   state = {
     friend: {
-      // id: 27,
-      name: 'friend one eleven',
-      age: 35,
-      email: 'your email here'
+      name: '',
+      age: 25,
+      email: ''
     }
   }
 
@@ -26,10 +25,10 @@ class AddFriend extends React.Component {
     event.preventDefault()
 
     axios.post('http://localhost:5000/api/friends', this.state.friend)
-      // .then(response => {
-      //   console.log('AddFriend POST req res', response)
-      // })
-      // .catch(err => console.log(err))
+      .then(response => {
+        console.log('AddFriend POST req response', response)
+      })
+      .catch(err => console.log(err))
   }
 
   render() {
@@ -44,18 +43,21 @@ class AddFriend extends React.Component {
               type='text'
               name='name'
               onChange={this.handleChange}
+              value={this.state.friend.name}
               placeholder='name'
             />
             <input 
               type='email'
               name='email'
               onChange={this.handleChange}
+              value={this.state.friend.email}
               placeholder='email'
             />
             <input 
               type='number'
               name='age'
               onChange={this.handleChange}
+              value={this.state.friend.age}
               placeholder='age'
             />
             <button type='submit'>Add Friend</button>

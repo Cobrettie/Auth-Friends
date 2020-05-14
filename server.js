@@ -64,7 +64,7 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'cobra' && password === 'cobra') {
+  if (username === 'admin' && password === 'password') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token

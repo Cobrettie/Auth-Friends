@@ -29,7 +29,7 @@ class FriendList extends React.Component {
     return (
       <div>
         <NavMenu />
-        <h2>Friend List Component - Here Are All Of Your Friends</h2>
+        <h2>Your Friends</h2>
         {this.state.friendList.length === 0 ? 
           <p>Loading friends...</p> :
           this.state.friendList.map(friend => {

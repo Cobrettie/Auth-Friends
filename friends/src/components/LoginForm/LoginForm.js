@@ -8,8 +8,8 @@ class LoginForm extends React.Component {
     super(props)
     this.state = {
       credentials: {
-        username: 'cobra',
-        password: 'cobra'
+        username: 'admin',
+        password: 'password'
       },
       isLoading: false
     }
@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
         <h2>Login Form</h2>
         {
           this.state.isLoading ? 
-          <p>Spinner...</p> : 
+          <p>Loading...</p> : 
           <div>
             <form onSubmit={this.login}>
               <input 
