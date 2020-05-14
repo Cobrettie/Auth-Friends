@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import NavMenu from '../NavMenu/NavMenu';
 
+import { FormHeader, FormContainerDiv, StyledForm } from './LoginFormStyles';
+
 class LoginForm extends React.Component {
   constructor(props) {
     super(props)
@@ -47,12 +49,12 @@ class LoginForm extends React.Component {
     return (
       <div>
         <NavMenu />
-        <h2>Login Form</h2>
+        <FormHeader>Login Form</FormHeader>
         {
           this.state.isLoading ? 
           <p>Loading...</p> : 
-          <div>
-            <form onSubmit={this.login}>
+          <FormContainerDiv>
+            <StyledForm onSubmit={this.login}>
               <input 
                 type='text'
                 name='username'
@@ -68,8 +70,8 @@ class LoginForm extends React.Component {
                 placeholder='Password'
               />
               <button type='submit'>Submit</button>
-            </form>
-          </div>
+            </StyledForm>
+          </FormContainerDiv>
         }
       </div>
     )
