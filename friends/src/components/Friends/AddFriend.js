@@ -28,7 +28,6 @@ class AddFriend extends React.Component {
 
     axios.post('http://localhost:5000/api/friends', this.state.friend)
       .then(response => {
-        console.log('AddFriend POST req response', response)
         this.setState({
           friend: {
             name: '',

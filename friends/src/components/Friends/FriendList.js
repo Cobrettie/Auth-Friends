@@ -18,7 +18,6 @@ class FriendList extends React.Component {
     const getFriends = () => {
       axios.get('http://localhost:5000/api/friends')
         .then(response => {
-          console.log('FriendList getFriend GET req response', response)
           this.setState({ friendList: response.data })
         })
     }
@@ -27,7 +26,6 @@ class FriendList extends React.Component {
   }
 
   render() {
-    console.log('FriendList Props', this.props)
     return (
       <div>
         <NavMenu />

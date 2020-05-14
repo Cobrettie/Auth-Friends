@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <NavMenu />
-      <h2>Login, view your friends, and add new friends!</h2>
+      <h2>Log in, view your friends, and add new friends!</h2>
       <p>HINT</p>
       <p>login = admin</p>
       <p>password = password</p>

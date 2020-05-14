@@ -29,12 +29,10 @@ class LoginForm extends React.Component {
   login = event => {
     event.preventDefault()
     this.setState({ isLoading: true })
-    console.log(this.state)
 
     // make a POST request, send credentials object to the api, log out response
     axios.post('http://localhost:5000/api/login', this.state.credentials)
       .then(response => {
-        console.log('LoginForm post request response', response)
         window.localStorage.setItem('token', response.data.payload)
         setTimeout(() => {
           this.setState({ isLoading: false })
@@ -45,7 +43,6 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    console.log('LoginForm Component props', this.props)
     return (
       <div>
         <NavMenu />

@@ -7,9 +7,9 @@ export default function NavMenu() {
     <div>
       <StyledNav>
         <StyledLink to='/'>Home</StyledLink>
-        <StyledLink to='/login'>Login</StyledLink>
         <StyledLink to='/friendlist'>Friend List</StyledLink>
         <StyledLink to ='/addfriend'>Add Friend</StyledLink>
+        <StyledLink to='/login'>Log in</StyledLink>
       </StyledNav>
     </div>
   )
