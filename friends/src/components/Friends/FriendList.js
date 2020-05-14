@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import NavMenu from '../NavMenu/NavMenu';
 
+import { FriendListHeader, FriendListContainerDiv } from './FriendStyles';
+
 class FriendList extends React.Component {
   constructor(props) {
     super(props)
@@ -29,18 +31,20 @@ class FriendList extends React.Component {
     return (
       <div>
         <NavMenu />
-        <h2>Your Friends</h2>
+        <FriendListHeader>Your Friends</FriendListHeader>
         {this.state.friendList.length === 0 ? 
           <p>Loading friends...</p> :
-          this.state.friendList.map(friend => {
-          return (
-            <div key={friend.id}>
-              <p>Name: {friend.name}</p>
-              <p>Email: {friend.email}</p>
-              <p>Age: {friend.age}</p>
-            </div>
-            )
-          })
+          <FriendListContainerDiv>
+            {this.state.friendList.map(friend => {
+              return (
+                <div key={friend.id}>
+                  <p>Name: {friend.name}</p>
+                  <p>Email: {friend.email}</p>
+                  <p>Age: {friend.age}</p>
+                </div>
+              )
+            })}
+          </FriendListContainerDiv>
         }
       </div>
     )
